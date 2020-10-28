@@ -23,7 +23,7 @@ function App () {
                 {Object.keys(categoryIds).map(id => <option key={id} value={id}>{id}</option>)}
             </select>
         </div>
-        <button className="nes-btn is-primary" onClick={onClick}>Fetch</button>
+        <button className="nes-btn is-primary" onClick={onClick}>Go!</button>
     </div>
 }
 ReactDom.render(<App />, document.getElementById('app'))
