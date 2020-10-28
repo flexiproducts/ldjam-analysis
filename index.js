@@ -1,14 +1,11 @@
 const fetch = require('node-fetch')
 const open = require('open')
+const { getUrlForPlace } = require('./lib')
 
 
 
 async function openPlace (category, place) {
-    const gradeId = categoryIds[category]
-    const result = await fetch(`https://api.ldjam.com/vx/node/feed/212256/grade-${gradeId}-result+reverse+parent/item/game/jam?offset=${place}&limit=1`)
-    const games = await result.json()
-    const gameId = games.feed[0].id
-    const url = await getGameUrl(gameId)
+    const url = getUrlForPlace(category, place)
 
     await open(url)
 }

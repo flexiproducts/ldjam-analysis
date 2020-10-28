@@ -1,4 +1,4 @@
-const categoryIds = {
+export const categoryIds = {
     'overall': '01',
     'fun': '02',
     'innovation': '03',
