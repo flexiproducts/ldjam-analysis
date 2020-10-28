@@ -11,7 +11,7 @@ export const categoryIds = {
 
 export async function getUrlForPlace (category, place) {
     const gradeId = categoryIds[category]
-    const result = await fetch(`https://api.ldjam.com/vx/node/feed/212256/grade-${gradeId}-result+reverse+parent/item/game/jam?offset=${place}&limit=1`)
+    const result = await fetch(`https://api.ldjam.com/vx/node/feed/212256/grade-${gradeId}-result+reverse+parent/item/game/jam?offset=${place - 1}&limit=1`)
     const games = await result.json()
     const gameId = games.feed[0].id
     const url = await getGameUrl(gameId)
