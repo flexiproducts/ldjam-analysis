@@ -1,0 +1,28 @@
+{
+  "name": "ldjam-analysis",
+  "version": "1.0.0",
+  "description": "`node . {categoryId} {place}`",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flexiproducts/ldjam-analysis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flexiproducts/ldjam-analysis/issues"
+  },
+  "homepage": "https://github.com/flexiproducts/ldjam-analysis#readme",
+  "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/runtime": "^7.12.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
