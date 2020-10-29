@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDom from 'react-dom'
 import { getGameForPlace, categoryIds } from './lib'
 
@@ -7,10 +7,17 @@ function App () {
     const [category, setCategory] = useState('overall')
     const [game, setGame] = useState();
 
-    async function onClick() {
-        const game = await getGameForPlace(category, place)
-        setGame(game)
-    }
+    useEffect(() => {
+        let cancelled = false
+        getGameForPlace(category, place).then(game => {
+            if (!cancelled) setGame(game)
+        })
+
+        return () => {
+            cancelled = true
+        }
+
+    }, [place, category])
 
     return <div className="centered nes-container with-title">
         <p className="title">Ludum Dare 47 Lookup</p>
@@ -24,7 +31,6 @@ function App () {
                 {Object.keys(categoryIds).map(id => <option key={id} value={id}>{id}</option>)}
             </select>
         </div>
-        <button className="nes-btn is-primary" onClick={onClick}>Go!</button>
         {game && <GameThumbnail game={game} />}
     </div>
 }
